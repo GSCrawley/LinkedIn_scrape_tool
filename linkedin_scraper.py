@@ -1,6 +1,7 @@
-from .base_operator import BaseOperator
+import requests
+from base_operator import BaseOperator
 from ai_context import AiContext
-import requestsfrom bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 
 class LinkedInScraper(BaseOperator):
     @staticmethod
@@ -45,12 +46,10 @@ class LinkedInScraper(BaseOperator):
             profile_info = soup.find('main', class_='scaffold-layout__main')
             profile_infos.append(profile_info.get_text())
             
-            ai_context.set_output('profile_infos', profile_infos)
+            ai_context.set_output('profile_infos', self, profile_infos)
 
             
-            # # Extract the profile name  
-            # profile_name = soup.find('h1', class_='text-heading-xlarge inline t-24 v-align-middle break-words').text
-            # profile_infos.append(profile_name)
+           
 
             # # Extract the profile location
             # profile_location = soup.find('span', class_='text-body-small inline t-black--light break-words').text
