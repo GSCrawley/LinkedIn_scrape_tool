@@ -1,5 +1,5 @@
 import requests
-from base_operator import BaseOperator
+from .base_operator import BaseOperator
 from ai_context import AiContext
 from bs4 import BeautifulSoup
 
